@@ -4,30 +4,27 @@ import { Check } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CTASection } from "@/components/CTASection";
+import { WaveDivider } from "@/components/WaveDivider";
 
 export const Route = createFileRoute("/aufbau-unserer-pools")({
   head: () => ({
     meta: [
       { title: "Aufbau unserer Pools – pim POOL" },
-      { name: "description", content: "So entsteht Ihr Pool bei pim POOL. Von der Bodenplatte über robuste Styroporsteine bis zum fertigen, folierten Becken, Schritt für Schritt erklärt." },
+      { name: "description", content: "So entsteht Ihr Salzwasser-Pool bei pim POOL. Von der Planung bis zum ersten Bad, in vier Schritten erklärt." },
     ],
   }),
   component: AufbauPage,
 });
 
-const ORANGE = "#16527A";
-const TURQ = "#C49A3C";
+const NAVY = "#0A3A5F";
+const KLM = "#00A1DE";
 const PLAYFAIR = "'Playfair Display', serif";
 
 const STEPS = [
-  { n: "01", img: "/images/aufbau/step-1.png", title: "Bodenplatte", text: "Am Anfang entsteht eine stabile Bodenplatte – das solide Fundament für Ihren Pool." },
-  { n: "02", img: "/images/aufbau/step-2.jpg", title: "Styroporsteine positionieren", text: "Nach dem Erstellen der Bodenplatte werden die Styroporsteine exakt positioniert." },
-  { n: "03", img: "/images/aufbau/step-3.jpg", title: "Reihe für Reihe aufbauen", text: "Reihe für Reihe bis zu einer Höhe von max. 1,5 m. Mit Rundstahlstangen werden die Kammern vertikal und horizontal bewehrt." },
-  { n: "04", img: "/images/aufbau/step-4.png", title: "Einbauteile setzen & befüllen", text: "Skimmer, Düsen, Scheinwerfer und weitere Einbauteile werden montiert – anschließend werden die Steine mit Beton befüllt." },
-  { n: "05", img: "/images/aufbau/step-5.jpg", title: "Treppenbau", text: "Eine vernünftige und formschöne Treppe darf natürlich nicht fehlen." },
-  { n: "06", img: "/images/Pim pool/Schritt 06 Verputzen.png", title: "Verputzen & vorbereiten", text: "Das Becken wird verputzt, desinfiziert und mit einem Spezial-Vlies beklebt." },
-  { n: "07", img: "/images/aufbau/step-7.jpg", title: "Folie nach Wunsch", text: "Zum Schluss wird das Becken mit der Wunschfolie ausgekleidet und verschweißt – ganz nach Kundenwunsch." },
-  { n: "08", img: "/images/aufbau/step-8.jpeg", title: "Fertiges Becken", text: "Und schon ist das Becken fertig – jetzt kann die Gartengestaltung beginnen." },
+  { n: "01", img: "/images/aufbau/step-1.png", title: "Planung & Fundament", text: "Nach Beratung, Aufmaß und 3D-Planung entsteht ein solides Fundament für Ihren Pool." },
+  { n: "02", img: "/images/aufbau/step-3.jpg", title: "Beckenbau nach Maß", text: "Stein für Stein entsteht Ihr Becken, genau in der Form und Größe, die Sie sich wünschen." },
+  { n: "03", img: "/images/aufbau/step-7.jpg", title: "Technik & Auskleidung", text: "Salzwasser-Technik, Treppe und Auskleidung in Ihrer Wunschfarbe werden fachgerecht eingebaut." },
+  { n: "04", img: "/images/pim/pool_start.jpg", title: "Bereit zum Baden", text: "Ihr Salzwasser-Pool ist fertig. Jetzt kann die Gartengestaltung beginnen und der Sommer kommen." },
 ];
 
 function AufbauPage() {
@@ -94,9 +91,9 @@ function AufbauPage() {
     <div ref={rootRef}>
       {/* HERO */}
       <section className="hero-section relative -mt-18 min-h-[68vh] flex items-center justify-center overflow-hidden">
-        <img src="/images/aufbau/step-4.png" alt="" className="hero-bg absolute inset-0 w-full h-[120%] object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-black/75" />
-        <div className="relative text-center text-white px-6 pt-32 pb-20 max-w-3xl">
+        <img src="/images/Unsere Pools Hero Section.jpg" alt="" className="hero-bg absolute inset-0 w-full h-[120%] object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#062440]/70 via-[#0A3A5F]/45 to-[#062440]/75" />
+        <div className="relative text-center text-white px-6 pt-36 pb-36 max-w-3xl">
           <div className="hero-reveal inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-5">
             Aufbau unserer Pools
           </div>
@@ -104,27 +101,28 @@ function AufbauPage() {
             So entsteht Ihr Pool
           </h1>
           <p className="hero-reveal mt-5 text-lg text-white/85 max-w-2xl mx-auto" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
-            Von der Bodenplatte bis zum fertigen Becken. Ein Blick hinter die Kulissen, wie wir Ihren Pool Stein für Stein bauen.
+            Von der ersten Idee bis zum ersten Bad. In vier Schritten zu Ihrem eigenen Salzwasser-Pool.
           </p>
         </div>
+        <WaveDivider color="#F2F9FD" />
       </section>
 
       {/* MATERIAL */}
-      <section className="py-20 md:py-28" style={{ backgroundColor: "#f7f7f5" }}>
+      <section className="relative overflow-hidden pt-16 pb-36 md:pt-20 md:pb-44" style={{ backgroundColor: "#F2F9FD" }}>
         <div className="container-page grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="mat-reveal">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: TURQ }}>Das Material</p>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: KLM }}>Das Material</p>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-5" style={{ fontFamily: PLAYFAIR }}>
-              Robuste Styroporsteine – flexibel nach Maß
+              Robuste Bauweise, flexibel nach Maß
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-7">
-              Unsere Styroporsteine sind sehr robust und können alle 25 cm auf Ihre Wünsche angepasst werden.
-              So entsteht jeder Pool exakt in Ihrer Wunschgröße und -form – stabil, langlebig und perfekt isoliert.
+              Wir bauen jedes Becken individuell vor Ort. So entsteht Ihr Pool genau in Ihrer Wunschgröße und -form,
+              stabil, langlebig und gut gedämmt.
             </p>
             <ul className="space-y-3">
-              {["Robuste, langlebige Bauweise", "Anpassbar in 25-cm-Schritten", "Ideal für individuelle Formen & Größen"].map((f) => (
+              {["Stabil und langlebig", "Gut gedämmt für warmes Wasser", "Nahezu jede Form und Größe"].map((f) => (
                 <li key={f} className="flex items-center gap-3">
-                  <span className="grid place-items-center size-6 rounded-full shrink-0" style={{ backgroundColor: TURQ }}>
+                  <span className="grid place-items-center size-6 rounded-full shrink-0" style={{ backgroundColor: KLM }}>
                     <Check className="size-3.5 text-white" />
                   </span>
                   <span className="text-sm font-medium text-foreground">{f}</span>
@@ -134,36 +132,31 @@ function AufbauPage() {
           </div>
           <div className="mat-reveal">
             <div className="relative overflow-hidden rounded-2xl shadow-elegant aspect-[3/2]">
-              <img src="/images/aufbau/produkt-1.png" alt="Styroporstein für den Poolbau" className="w-full h-full object-cover" />
+              <img src="/images/pim/pool_2.jpg" alt="Fertiger Salzwasser-Pool von pim POOL im Garten" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
 
-        {/* Infografik */}
-        <div className="container-page mt-12 mat-reveal">
-          <div className="rounded-2xl border border-border bg-white p-4 md:p-8 shadow-card">
-            <img src="/images/aufbau/produkt-2.png" alt="Styroporstein Infografik – technische Details" className="w-full h-auto object-contain max-h-[520px] mx-auto" />
-          </div>
-        </div>
+        <WaveDivider />
       </section>
 
       {/* PROZESS / TIMELINE */}
       <section id="prozess" className="relative py-20 md:py-28 bg-white overflow-hidden">
         <div className="container-page">
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
-            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: TURQ }}>Schritt für Schritt</p>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: KLM }}>Schritt für Schritt</p>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight" style={{ fontFamily: PLAYFAIR }}>
               Der Weg zu Ihrem Pool
             </h2>
             <p className="mt-5 text-base text-muted-foreground leading-relaxed">
-              Jeder pim POOL entsteht in sorgfältiger Handarbeit. So läuft der Aufbau bei uns ab:
+              Jeder pim POOL entsteht in sorgfältiger Handarbeit, mit einem festen Ansprechpartner von Anfang bis Ende.
             </p>
           </div>
 
           <div ref={timelineRef} className="relative max-w-5xl mx-auto">
             {/* zentrale Linie (ab md) */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 -translate-x-1/2 w-px bg-border">
-              <div ref={lineRef} className="absolute inset-0 origin-top" style={{ backgroundColor: TURQ, transform: "scaleY(0)" }} />
+              <div ref={lineRef} className="absolute inset-0 origin-top" style={{ backgroundColor: KLM, transform: "scaleY(0)" }} />
             </div>
 
             <div className="space-y-14 md:space-y-0">
@@ -177,7 +170,7 @@ function AufbauPage() {
                         <img src={s.img} alt={`Schritt ${s.n}: ${s.title}`} loading="lazy" className="w-full h-full object-cover" />
                         <span
                           className="absolute top-4 left-4 grid place-items-center size-11 rounded-full text-white text-sm font-bold shadow-lg md:hidden"
-                          style={{ backgroundColor: ORANGE, fontFamily: PLAYFAIR }}
+                          style={{ backgroundColor: NAVY, fontFamily: PLAYFAIR }}
                         >
                           {s.n}
                         </span>
@@ -186,7 +179,7 @@ function AufbauPage() {
 
                     {/* Text */}
                     <div className={`step-text mt-5 md:mt-0 ${left ? "md:order-2 md:pl-6" : "md:order-1 md:pr-6 md:text-right"}`}>
-                      <span className="step-num hidden md:block text-6xl font-bold leading-none mb-3" style={{ color: ORANGE, fontFamily: PLAYFAIR }}>
+                      <span className="step-num hidden md:block text-6xl font-bold leading-none mb-3" style={{ color: NAVY, fontFamily: PLAYFAIR }}>
                         {s.n}
                       </span>
                       <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: PLAYFAIR }}>{s.title}</h3>
@@ -196,7 +189,7 @@ function AufbauPage() {
                     {/* Knoten auf der Linie */}
                     <span
                       className="step-node hidden md:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-4 rounded-full ring-4 ring-white z-10"
-                      style={{ backgroundColor: ORANGE }}
+                      style={{ backgroundColor: NAVY }}
                     />
                   </div>
                 );

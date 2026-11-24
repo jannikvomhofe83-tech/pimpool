@@ -5,9 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 export function TrustBar() {
   const ref = useRef<HTMLDivElement>(null);
   const stats = [
-    { value: "30 Jahre", label: "Erfahrung mit Wasser" },
-    { value: "Pool & Teich", label: "Alles aus einer Hand" },
-    { value: "RENOLIT", label: "Zertifizierter Fachverleger" },
+    { value: "35 Jahre", label: "Erfahrung" },
+    { value: "Salzwasser", label: "Unsere Spezialität" },
+    { value: "1 Partner", label: "Alles aus einer Hand" },
   ];
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function TrustBar() {
           <div key={s.label} className="trust-stat flex flex-col items-center justify-center py-8 px-4 text-center">
             <span
               className="text-4xl md:text-5xl font-bold"
-              style={{ color: "#16527A", fontFamily: "'Playfair Display', serif" }}
+              style={{ color: "#0A3A5F", fontFamily: "'Playfair Display', serif" }}
             >
               {s.value}
             </span>

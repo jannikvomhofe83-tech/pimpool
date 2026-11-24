@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { NAV, COMPANY, type NavChild } from "@/lib/site";
 
-const ACCENT = "#16527A";
-const GOLD = "#C49A3C";
+const ACCENT = "#0A3A5F";
+const KLM = "#00A1DE";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -85,7 +85,7 @@ export function Header() {
                     to={item.to}
                     activeOptions={item.to === "/" ? { exact: true } : undefined}
                     onClick={() => setOpen(false)}
-                    activeProps={{ style: { color: GOLD, fontWeight: 700 } }}
+                    activeProps={{ style: { color: KLM, fontWeight: 700 } }}
                   >{item.label}</Link>
                   {item.children && <ChevronDown className={`size-4 transition ${openMobile === item.to ? "rotate-180" : ""}`} />}
                 </button>
@@ -157,7 +157,7 @@ function MegaItem({ item, scrolled }: { item: NavChild; scrolled: boolean }) {
         activeOptions={item.to === "/" ? { exact: true } : undefined}
         className="flex items-center gap-1 px-2 py-2 text-sm font-semibold transition rounded-md hover:opacity-70 whitespace-nowrap"
         style={{ color, textShadow: shadow }}
-        activeProps={{ style: { color: GOLD, textShadow: "none", fontWeight: 700 } }}
+        activeProps={{ style: { color: KLM, textShadow: "none", fontWeight: 700 } }}
       >
         {item.label}
         {item.children && <ChevronDown className="size-3.5 opacity-70" />}

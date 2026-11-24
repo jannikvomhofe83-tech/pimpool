@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ChevronRight, ArrowRight } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { WaveDivider } from "@/components/WaveDivider";
 
 export type Crumb = { label: string; to?: string };
 
@@ -51,8 +52,8 @@ export function PageHero({
 
   return (
     <section
-      className={`relative overflow-hidden border-b border-border ${
-        hasMedia ? "-mt-18 flex items-center" : "gradient-soft"
+      className={`relative overflow-hidden ${
+        hasMedia ? "-mt-18 flex items-center" : "gradient-soft border-b border-border"
       } ${hasVideo ? "min-h-[520px]" : ""} ${hasImage ? "min-h-[560px] md:min-h-[660px]" : ""}`}
     >
       {hasVideo && (
@@ -70,10 +71,10 @@ export function PageHero({
 
       {hasImage && (
         <>
-          <img src={encodeURI(image!)} alt="" className="absolute inset-0 w-full h-full object-cover" />
+          <img src={encodeURI(image!)} alt="" className="hero-kenburns absolute inset-0 w-full h-full object-cover" />
           {/* gerichtete Verläufe: Text links lesbar, Bilddetails rechts sichtbar */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#062440]/80 via-[#0A3A5F]/45 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#062440]/40 to-transparent" />
         </>
       )}
 
@@ -84,7 +85,7 @@ export function PageHero({
         </div>
       )}
 
-      <div ref={contentRef} className={`container-page relative ${hasMedia ? "pt-36 pb-24" : "py-16 md:py-24"}`}>
+      <div ref={contentRef} className={`container-page relative ${hasMedia ? "pt-36 pb-36" : "py-16 md:py-24"}`}>
         {crumbs && (
           <nav className={`hero-stagger flex flex-wrap items-center gap-1 text-xs mb-5 ${hasMedia ? "text-white/70" : "text-muted-foreground"}`}>
             <Link to="/" className="transition-colors hover:text-primary">Start</Link>
@@ -129,6 +130,7 @@ export function PageHero({
           );
         })()}
       </div>
+      {hasMedia && <WaveDivider />}
     </section>
   );
 }

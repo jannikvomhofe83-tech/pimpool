@@ -1,8 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { Layers, Waves, ArrowRight, Palette, Wrench, Settings, Sparkles, PencilRuler, Leaf } from "lucide-react";
+import { Layers, Waves, ArrowRight, Palette, Wrench, Settings, Sparkles, PencilRuler, Droplets, Quote } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
 import { TrustBar } from "@/components/TrustBar";
+import { WaveDivider } from "@/components/WaveDivider";
 import { useReveal } from "@/lib/useReveal";
 import leistungenBg from "@/assets/leistungen-bg.png";
 
@@ -11,23 +12,20 @@ const aboutPool = "/images/pim/pool_start.jpg";
 const ref9 = "/images/pim/pool_1.jpg";
 const ref10 = "/images/pim/pool_2.jpg";
 const ref11 = "/images/pim/pool_3.jpg";
-const ref12 = "/images/pim/teich_1.jpg";
-const ref13 = "/images/pim/teich_2.jpg";
-const ref14 = "/images/pim/teich_3.jpg";
-const ref15 = "/images/pim/schwimmteich_start.jpg";
-const ref16 = "/images/pim/natural-pond.webp";
-const ref17 = "/images/pim/glass-enclosure.webp";
+const ref12 = "/images/pim/pool_start.jpg";
+const ref13 = "/images/pim/glass-enclosure.webp";
+const ref14 = "/images/Pim pool/Terrasse verschiebbar mit Handy.png";
 const bild19 = "/images/pim/pim-portrait.webp";
 const highlight1 = "/images/pim/pool_1.jpg";
 const highlight2 = "/images/pim/pool_3.jpg";
-const highlight3 = "/images/pim/teich_2.jpg";
+const highlight3 = "/images/Pim pool/Terrasse verschiebbar mit Handy.png";
 const highlight4 = "/images/pim/glass-enclosure.webp";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "pim POOL – Individuelle Wasserlandschaften aus Oberbayern" },
-      { name: "description", content: "pim POOL aus Hohenpolding plant und baut individuelle Pools und Schwimmteiche ganz nach Ihren Wünschen. Ihr Ansprechpartner für Wasserlandschaften im Großraum München und Erding." },
+      { title: "pim POOL – Salzwasser-Pools aus Oberbayern" },
+      { name: "description", content: "pim POOL aus Hohenpolding plant und baut individuelle Salzwasser-Pools ganz nach Ihren Wünschen. 35 Jahre Erfahrung, Ihr Ansprechpartner im Großraum München und Erding." },
     ],
   }),
   component: HomePage,
@@ -36,7 +34,7 @@ export const Route = createFileRoute("/")({
 // PLATZHALTER – bitte durch echte pim POOL Kundenbewertungen ersetzen.
 const REVIEWS = [
   {
-    text: "Von der ersten Idee bis zum fertigen Becken hatten wir immer einen festen Ansprechpartner. Unsere Wasserlandschaft ist genau so geworden, wie wir sie uns erträumt haben.",
+    text: "Von der ersten Idee bis zum fertigen Becken hatten wir immer einen festen Ansprechpartner. Unser Pool ist genau so geworden, wie wir sie uns erträumt haben.",
     name: "",
     source: "",
   },
@@ -46,21 +44,20 @@ const REVIEWS = [
     source: "",
   },
   {
-    text: "Unser Schwimmteich fügt sich völlig natürlich in den Garten ein. Wir genießen jeden Tag die Erholung im eigenen Wasser.",
+    text: "Das Salzwasser ist so angenehm auf der Haut, und die Pflege ist viel einfacher als gedacht. Wir genießen jeden Tag die Erholung im eigenen Garten.",
     name: "",
     source: "",
   },
 ];
 
 const LEISTUNGEN = [
+  { icon: Sparkles, title: "Salzwasser-Pools", text: "Unsere Spezialität. Salzwasser ist angenehm zur Haut, schont die Augen und ist besonders pflegeleicht.", to: "/poolabdeckungen" },
   { icon: Waves, title: "Pools nach Maß", text: "Wir bauen Ihren Pool Stein für Stein und verwirklichen dabei nahezu jede Form und Größe, die Ihnen vorschwebt.", to: "/poolabdeckungen" },
-  { icon: Leaf, title: "Schwimmteiche", text: "Die Erholung im eigenen Garten ganz ohne Chemie. Vom naturnahen Teich bis zum Natur-Pool in sechs Kategorien.", to: "/schwimmteich" },
-  { icon: Wrench, title: "Aufbau & Montage", text: "Mit robusten Styroporsteinen entsteht jedes Becken individuell vor Ort. Vom Fundament bis zur fertigen Technik begleiten wir jeden Schritt.", to: "/aufbau-unserer-pools" },
-  { icon: Palette, title: "Folien & Design", text: "Als zertifizierter RENOLIT Fachverleger kleiden wir Ihr Becken in Ihrer Wunschfarbe aus, auf Wunsch in edler Steinoptik.", to: "/folien-farben-design" },
-  { icon: Sparkles, title: "Salzwasser-Pools", text: "Unsere Spezialität. Salzwasser ist angenehm zur Haut und besonders pflegeleicht. Die klassische Variante mit Chlor bauen wir ebenso.", to: "/poolabdeckungen" },
+  { icon: Wrench, title: "Aufbau & Montage", text: "Vom Fundament bis zur fertigen Technik kommt alles aus einer Hand, mit einem festen Ansprechpartner.", to: "/aufbau-unserer-pools" },
+  { icon: Palette, title: "Pool-Konfigurator", text: "Probieren Sie Farben und Oberflächen für Ihr Becken direkt online aus, bevor wir gemeinsam planen.", to: "/pool-konfigurator" },
   { icon: Layers, title: "Überdachungen", text: "Ob verschiebbare Terrasse, Glasüberdachung oder Rollabdeckung. So verlängern Sie Ihre Badesaison und schützen das Wasser.", to: "/daecher" },
   { icon: Settings, title: "Wellness & Technik", text: "Gegenstromanlage, Schwalldusche, Luftsprudler und smarte Steuerung machen aus Ihrem Becken eine echte Wellness-Oase.", to: "/kontakt" },
-  { icon: PencilRuler, title: "3D-Planung & Beratung", text: "Nach dem Aufmaß fertigen wir eine 3D-Planung, damit Ihre Vorstellungen Gestalt annehmen. Persönlich und mit 30 Jahren Erfahrung.", to: "/kontakt" },
+  { icon: PencilRuler, title: "3D-Planung & Beratung", text: "Nach dem Aufmaß fertigen wir eine 3D-Planung, damit Ihre Vorstellungen Gestalt annehmen. Persönlich und mit 35 Jahren Erfahrung.", to: "/kontakt" },
 ];
 
 function HomePage() {
@@ -71,44 +68,66 @@ function HomePage() {
   return (
     <div ref={rootRef}>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center justify-center">
-        <div className="absolute inset-0 -z-10">
-          <img src="/images/Pim pool/Hero Section Landing Page Hintergrund.png" alt="" width={1920} height={1080} className="size-full object-cover" />
-          <div className="absolute inset-0 bg-black/55" />
+      <section className="relative isolate overflow-hidden -mt-18 min-h-screen flex items-center">
+        {/* Hintergrund: Villa-Pool mit langsamem Zoom + gerichteten Verläufen */}
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <img
+            src="/images/pim/pool_1.jpg"
+            alt="Rechteckiger Salzwasser-Pool vor moderner Villa"
+            width={1000}
+            height={601}
+            className="hero-kenburns size-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#062440]/90 via-[#0A3A5F]/55 to-[#0A3A5F]/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#062440]/70 via-transparent to-[#062440]/40" />
+          {/* weicher Lichtschimmer wie Wasserreflexe */}
+          <div className="hero-shimmer absolute -left-1/4 top-1/3 h-[60%] w-[70%] rounded-full blur-3xl" aria-hidden="true" />
         </div>
-        <div data-hero className="flex flex-col items-center text-center px-6 pt-48 pb-24 text-white">
-          <h1
-            data-hero-item
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide"
-            style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.6)", textTransform: "none" }}
-          >
-            WASSERLANDSCHAFTEN<br />DIE FASZINIEREN
-          </h1>
-          <p
-            data-hero-item
-            className="mt-5 text-lg md:text-2xl font-medium tracking-widest uppercase text-white/90"
-            style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 8px rgba(0,0,0,0.7)" }}
-          >
-            Individuelle Pools und Schwimmteiche<br />aus Hohenpolding in Oberbayern
-          </p>
-          <p data-hero-item className="mt-5 text-base md:text-lg text-white/75 max-w-xl" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
-            Lassen Sie sich von unserer Begeisterung für Wasser anstecken und genießen Sie schon bald die Faszination Wasser im eigenen Garten.
-          </p>
-          <Link
-            to="/kontakt"
-            data-hero-item
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold transition text-[#16527A] hover:bg-[#C49A3C] hover:text-white"
-          >
-            Jetzt Termin für Erstberatung vereinbaren <ArrowRight className="size-4" />
-          </Link>
-          <div data-hero-item className="mt-10 opacity-60">
-            <svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 16 C 30 2, 60 30, 90 16 C 120 2, 150 30, 175 16" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-              <path d="M5 28 C 30 14, 60 42, 90 28 C 120 14, 150 42, 175 28" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-              <path d="M5 40 C 30 26, 60 54, 90 40 C 120 26, 150 54, 175 40" stroke="white" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
-            </svg>
+
+        <div data-hero className="container-page relative pt-40 pb-48">
+          {/* Text links */}
+          <div className="max-w-3xl text-white">
+            <div data-hero-item className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] backdrop-blur-md">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#8FD8F5] opacity-75" />
+                <span className="relative inline-flex size-2 rounded-full bg-[#00A1DE]" />
+              </span>
+              Salzwasser-Pools aus Oberbayern
+            </div>
+            <h1
+              data-hero-item
+              className="mt-6 text-5xl font-bold leading-[1.05] md:text-6xl lg:text-7xl"
+              style={{ fontFamily: "'Playfair Display', serif", textShadow: "0 2px 24px rgba(6,36,64,0.5)" }}
+            >
+              Pools, die
+              <br />
+              <span className="bg-gradient-to-r from-[#8FD8F5] via-[#4FC3EC] to-[#00A1DE] bg-clip-text italic text-transparent">begeistern.</span>
+            </h1>
+            <p data-hero-item className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+              Individuell geplant und gebaut in Hohenpolding. Sanft zur Haut, einfach in der Pflege und mit
+              35 Jahren Erfahrung umgesetzt, von der ersten Idee bis zum ersten Bad.
+            </p>
+            <div data-hero-item className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/kontakt"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#00A1DE] px-8 py-4 text-sm font-semibold text-white shadow-[0_12px_40px_-8px_rgba(0,161,222,0.7)] transition hover:bg-[#0077B6]"
+              >
+                Erstberatung vereinbaren
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                to="/pool-konfigurator"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/30 bg-white/10 px-8 py-4 text-sm font-semibold text-white backdrop-blur-md transition hover:bg-white/20"
+              >
+                <Palette className="size-4" /> Pool online gestalten
+              </Link>
+            </div>
           </div>
+
         </div>
+
+        {/* animierte Wellen als Übergang zur Seite */}
+        <WaveDivider className="h-28" />
       </section>
 
       <TrustBar />
@@ -123,30 +142,30 @@ function HomePage() {
           >
             Wasser ist Lebenselixier und pim POOLs sind Lebensfreude
           </h2>
-          <div className="mt-8 border-l-2 pl-6 space-y-3 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif", borderColor: "#C49A3C" }}>
+          <div className="mt-8 border-l-2 pl-6 space-y-3 leading-relaxed" style={{ fontFamily: "'Playfair Display', serif", borderColor: "#00A1DE" }}>
             <p className="text-base text-muted-foreground">
-              Wasser fasziniert Groß und Klein. Ob Morgenfitness oder Abkühlung nach einem heißen Tag, ob Meerrauschen oder das Plätschern eines Bachlaufes. Für uns von pim POOL ist jede Wasserlandschaft, die wir für Sie kreieren, pure Lebensfreude.
+              Wasser fasziniert Groß und Klein. Ob Morgenfitness oder Abkühlung nach einem heißen Tag, ob Meerrauschen oder das Plätschern eines Bachlaufes. Für uns von pim POOL ist jeder Pool, den wir für Sie bauen, pure Lebensfreude.
             </p>
             <p className="text-base text-muted-foreground">
-              Gemeinsam mit Ihnen entwerfen wir Ihren ganz individuellen Pool oder Schwimmteich. Neben unserer Begeisterung dürfen Sie von uns die Erfahrung aus 30 Jahren und ein starkes Netzwerk an Partnern erwarten. Von der Planung bis zur Umsetzung haben Sie immer einen festen Ansprechpartner.
+              Gemeinsam mit Ihnen entwerfen wir Ihren ganz individuellen Salzwasser-Pool. Neben unserer Begeisterung dürfen Sie von uns die Erfahrung aus 35 Jahren und ein starkes Netzwerk an Partnern erwarten. Von der Planung bis zur Umsetzung haben Sie immer einen festen Ansprechpartner.
             </p>
             <p className="text-base text-muted-foreground">
-              Als zertifizierter Fachverleger für Schwimmbecken-Auskleidungen von RENOLIT stehen wir für Qualität bis ins Detail. Wenn Sie selbst mit gestalten möchten, bringen Sie gerne Eigenleistung ein. Oder Sie vertrauen uns und unseren Partnern und genießen einfach.
+              Wir stehen für Qualität bis ins Detail. Wenn Sie selbst mit gestalten möchten, bringen Sie gerne Eigenleistung ein. Oder Sie vertrauen uns und unseren Partnern und genießen einfach.
             </p>
           </div>
         </div>
 
         {/* Bild rechts */}
-        <div data-reveal="right" className="relative min-h-[520px]" style={{ backgroundColor: "#C49A3C" }}>
+        <div data-reveal="right" className="group relative min-h-[520px]" style={{ background: "linear-gradient(160deg, #00A1DE 0%, #0077B6 55%, #0A3A5F 100%)" }}>
           <div className="absolute inset-8 border border-white/50 pointer-events-none z-10" />
-          <div className="absolute top-10 -left-10 right-10 bottom-10 shadow-2xl overflow-hidden">
-            <img src={aboutPool} alt="Individuelle Wasserlandschaft von pim POOL" className="w-full h-full object-cover" />
+          <div className="absolute top-10 -left-10 right-10 bottom-10 shadow-2xl overflow-hidden rounded-sm">
+            <img src={aboutPool} alt="Individueller Salzwasser-Pool von pim POOL" className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105" />
           </div>
         </div>
       </section>
 
       {/* LEISTUNGEN */}
-      <section className="relative py-24 overflow-hidden bg-white">
+      <section className="relative pt-24 pb-40 overflow-hidden bg-white">
         {/* Wassertropfen Hintergrund */}
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <img src={leistungenBg} alt="" className="w-full h-full object-cover opacity-40" />
@@ -160,25 +179,33 @@ function HomePage() {
           >
             Unsere Leistungen
           </h2>
-          <div data-reveal-group className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-12">
+          <div data-reveal-group className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {LEISTUNGEN.map((item) => (
-              <Link key={item.title} to={item.to} data-reveal-item className="group">
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition">
-                    {item.title}
-                  </h3>
-                  <item.icon className="size-10 shrink-0 mt-0.5" strokeWidth={1} style={{ color: "#C49A3C" }} />
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+              <Link
+                key={item.title}
+                to={item.to}
+                data-reveal-item
+                className="group relative flex flex-col overflow-hidden rounded-2xl border border-[#DCEBF3] bg-white/85 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1.5 hover:border-[#00A1DE]/40 hover:shadow-elegant"
+              >
+                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-[#00A1DE] to-[#0077B6] transition-transform duration-500 group-hover:scale-x-100" aria-hidden="true" />
+                <span className="grid size-12 place-items-center rounded-xl bg-[#E6F6FD] transition-colors duration-300 group-hover:bg-[#00A1DE]">
+                  <item.icon className="size-6 text-[#00A1DE] transition-colors duration-300 group-hover:text-white" strokeWidth={1.5} />
+                </span>
+                <h3 className="mt-5 text-lg font-bold text-foreground">{item.title}</h3>
+                <p className="mt-2 flex-1 text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0077B6]">
+                  Mehr erfahren <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
               </Link>
             ))}
           </div>
         </div>
+        <WaveDivider color="#F2F9FD" />
       </section>
 
       {/* HIGHLIGHTS */}
       <section>
-        <div className="py-16 text-center" style={{ backgroundColor: "#f5f5f3" }}>
+        <div className="pt-8 pb-16 text-center" style={{ backgroundColor: "#F2F9FD" }}>
           <div data-reveal className="text-xs font-semibold uppercase tracking-wider text-primary mb-3">Highlights</div>
           <h2
             data-reveal
@@ -186,81 +213,88 @@ function HomePage() {
             className="text-3xl md:text-4xl font-bold"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Vier gute Gründe für Ihre Wasserlandschaft
+            Vier gute Gründe für Ihren pim POOL
           </h2>
         </div>
-        <div data-reveal-group className="grid grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#f5f5f3" }}>
+        <div data-reveal-group className="grid grid-cols-2 lg:grid-cols-4 gap-y-8" style={{ backgroundColor: "#F2F9FD" }}>
           {/* Zeile 1 */}
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Waves className="size-16 mb-6" strokeWidth={1} style={{ color: "#C49A3C" }} />
+          <div data-reveal-item className="bg-[#F2F9FD] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Waves className="size-16 mb-6" strokeWidth={1} style={{ color: "#00A1DE" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Pools nach Maß</h3>
             <p className="text-sm text-muted-foreground text-center leading-relaxed">Stein für Stein entsteht Ihr Becken in der Form, Größe und Tiefe, die Sie sich wünschen.</p>
             <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
-            <img src={highlight1} alt="" className="w-full h-full object-cover" />
+          <div data-reveal-item className="group min-h-[480px] overflow-hidden">
+            <img src={highlight1} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
           </div>
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Palette className="size-16 mb-6" strokeWidth={1} style={{ color: "#C49A3C" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Folien & Design</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Hochwertige RENOLIT Folien in vielen Farben und Oberflächen, auf Wunsch in täuschend echter Steinoptik.</p>
-            <Link to="/folien-farben-design" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#F2F9FD] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Droplets className="size-16 mb-6" strokeWidth={1} style={{ color: "#00A1DE" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Salzwasser</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Weiches Wasser ohne störenden Chlorgeruch, angenehm für Haut und Augen und dabei besonders pflegeleicht.</p>
+            <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
-            <img src={highlight2} alt="" className="w-full h-full object-cover" />
+          <div data-reveal-item className="group min-h-[480px] overflow-hidden">
+            <img src={highlight2} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
           </div>
           {/* Zeile 2 */}
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Leaf className="size-16 mb-6" strokeWidth={1} style={{ color: "#C49A3C" }} />
-            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Schwimmteiche</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Erholung im eigenen Garten ganz ohne Chemie, vom naturnahen Teich bis zum Natur-Pool.</p>
-            <Link to="/schwimmteich" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
+          <div data-reveal-item className="bg-[#F2F9FD] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Layers className="size-16 mb-6" strokeWidth={1} style={{ color: "#00A1DE" }} />
+            <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Komfort & Technik</h3>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Verschiebbare Terrasse, Überdachung oder Smart Home: Ihr Pool lässt sich bequem per App steuern.</p>
+            <Link to="/poolabdeckungen" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
-            <img src={highlight3} alt="" className="w-full h-full object-cover" />
+          <div data-reveal-item className="group min-h-[480px] overflow-hidden">
+            <img src={highlight3} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
           </div>
-          <div data-reveal-item className="bg-[#f5f5f3] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
-            <Wrench className="size-16 mb-6" strokeWidth={1} style={{ color: "#C49A3C" }} />
+          <div data-reveal-item className="bg-[#F2F9FD] flex flex-col items-center justify-center px-8 py-16 min-h-[480px]">
+            <Wrench className="size-16 mb-6" strokeWidth={1} style={{ color: "#00A1DE" }} />
             <h3 className="text-xl font-bold text-center mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>Aufbau & Montage</h3>
-            <p className="text-sm text-muted-foreground text-center leading-relaxed">Vom Aushub über den Beckenbau aus Styroporsteinen bis zur Technik kommt alles aus einer Hand.</p>
+            <p className="text-sm text-muted-foreground text-center leading-relaxed">Von der Planung über den Beckenbau bis zur Technik kommt alles aus einer Hand.</p>
             <Link to="/aufbau-unserer-pools" className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline">Mehr erfahren <ArrowRight className="size-3.5" /></Link>
           </div>
-          <div data-reveal-item className="min-h-[480px] overflow-hidden">
-            <img src={highlight4} alt="" className="w-full h-full object-cover" />
+          <div data-reveal-item className="group min-h-[480px] overflow-hidden">
+            <img src={highlight4} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-110" />
           </div>
         </div>
       </section>
 
       {/* REFERENZEN */}
-      <section className="relative overflow-hidden">
-        {/* Split-Hintergrund über die gesamte Sektionshöhe */}
-        <div className="absolute inset-0 grid grid-cols-[42%_58%] pointer-events-none" aria-hidden="true">
-          <div className="bg-white" />
-          <div style={{ backgroundColor: "#C49A3C" }} />
-        </div>
+      <section className="relative overflow-hidden gradient-deep pt-36 pb-44 text-white">
+        <WaveDivider color="#F2F9FD" position="top" />
+        <div className="pointer-events-none absolute -right-40 top-1/4 size-[36rem] rounded-full bg-[#00A1DE]/20 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -left-40 bottom-10 size-[28rem] rounded-full bg-[#0077B6]/25 blur-3xl" aria-hidden="true" />
 
-        {/* Inhalt */}
-        <div className="relative">
-          {/* Heading-Bereich: "Referenzen" links, beige rechts sichtbar */}
-          <div className="px-16 py-24">
-            <h2
+        <div className="container-page relative">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div data-reveal>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#8FD8F5]">Realisierte Projekte</p>
+              <h2 className="mt-3 text-4xl md:text-5xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Referenzen
+              </h2>
+            </div>
+            <Link
               data-reveal
-              className="text-5xl font-bold text-foreground"
-              style={{ fontFamily: "'Playfair Display', serif" }}
+              to="/poolabdeckungen"
+              className="group inline-flex items-center gap-2 self-start rounded-full border border-white/25 bg-white/10 px-6 py-3 text-sm font-semibold backdrop-blur-md transition hover:bg-white/20 md:self-auto"
             >
-              Referenzen
-            </h2>
+              Alle Salzwasser-Pools <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
 
-          {/* Bild-Grid – spannt über weiße UND beige Seite */}
-          <div data-reveal-group className="grid grid-cols-3 gap-3 px-28 pb-16">
-            {[ref9, ref10, ref11, ref12, ref13, ref14, ref15, ref16, ref17].map((src, i) => (
-              <div key={i} data-reveal-item className="aspect-[4/3] overflow-hidden group">
-                <img src={src} alt="" loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" />
+          <div data-reveal-group className="mt-14 grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-5">
+            {[ref9, ref10, ref11, ref12, ref13, ref14].map((src, i) => (
+              <div
+                key={i}
+                data-reveal-item
+                className={`group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10 ${i === 0 ? "md:col-span-2 md:row-span-2" : ""} aspect-[4/3] ${i === 0 ? "md:aspect-auto" : ""}`}
+              >
+                <img src={src} alt="Salzwasser-Pool von pim POOL" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#062440]/70 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               </div>
             ))}
           </div>
         </div>
+        <WaveDivider color="#ffffff" />
       </section>
 
       {/* REZENSIONEN */}
@@ -279,8 +313,11 @@ function HomePage() {
             Rezensionen
           </h2>
 
-          {/* Zitat-Box mit feiner brauner Umrandung */}
-          <div data-reveal data-reveal-delay="0.1" className="px-14 py-12" style={{ border: "1px solid #C49A3C" }}>
+          {/* Zitat-Box */}
+          <div data-reveal data-reveal-delay="0.1" className="relative rounded-3xl border border-[#DCEBF3] bg-white/90 px-8 py-12 shadow-elegant backdrop-blur-sm md:px-14">
+            <span className="absolute -top-7 left-1/2 grid size-14 -translate-x-1/2 place-items-center rounded-full bg-gradient-to-br from-[#00A1DE] to-[#0077B6] shadow-lg" aria-hidden="true">
+              <Quote className="size-6 text-white" />
+            </span>
             <div className="min-h-[140px] flex flex-col justify-center">
               <p
                 className="text-xl leading-relaxed text-foreground/80 italic"
@@ -307,7 +344,7 @@ function HomePage() {
               <button
                 key={i}
                 onClick={() => setReviewSlide(i)}
-                className={`rounded-full transition-all ${i === reviewSlide ? "size-2.5 bg-foreground/50" : "size-2 bg-foreground/20 hover:bg-foreground/35"}`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === reviewSlide ? "w-8 bg-[#00A1DE]" : "w-2 bg-[#0A3A5F]/20 hover:bg-[#0A3A5F]/40"}`}
                 aria-label={`Rezension ${i + 1}`}
               />
             ))}
@@ -315,10 +352,9 @@ function HomePage() {
 
           <Link
             to="/kontakt"
-            className="mt-10 inline-flex items-center px-6 py-3 text-white font-medium transition hover:opacity-90"
-            style={{ backgroundColor: "#16527A", fontFamily: "'Playfair Display', serif" }}
+            className="group mt-10 inline-flex items-center gap-2 rounded-full bg-[#0A3A5F] px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-[#0077B6]"
           >
-            Kontakt aufnehmen
+            Kontakt aufnehmen <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>
       </section>
@@ -326,7 +362,7 @@ function HomePage() {
       {/* ÜBER UNS – Bild links / Text rechts */}
       <section id="ueber-uns" className="grid lg:grid-cols-2 overflow-hidden scroll-mt-20">
         {/* Bild – Porträt von Pim van der Poel, vollständig sichtbar */}
-        <div data-reveal="left" className="relative min-h-[600px] flex items-end justify-center" style={{ background: "linear-gradient(160deg, #eef2f5 0%, #dfe6ec 100%)" }}>
+        <div data-reveal="left" className="relative min-h-[600px] flex items-end justify-center" style={{ background: "linear-gradient(160deg, #E6F6FD 0%, #BFE4F5 100%)" }}>
           <img src={bild19} alt="Pim van der Poel, Geschäftsführer von pim POOL" className="h-[88%] w-auto max-w-full object-contain self-end" />
         </div>
 
@@ -339,11 +375,11 @@ function HomePage() {
             Über uns
           </h2>
           <p className="text-base text-muted-foreground leading-relaxed mb-10">
-            Schon vor 30 Jahren hat unser Geschäftsführer Pim van der Poel die ersten Schwimmteiche in Holland gebaut. Diese Erfahrung fließt heute in jede Wasserlandschaft ein, die in Hohenpolding entsteht. Für die Umsetzung sind viele Bauabschnitte nötig, von den Erdarbeiten über den Wasseranschluss bis zur Gartengestaltung. Wir koordinieren alle Firmen, damit Sie immer einen festen Ansprechpartner haben.
+            Seit 35 Jahren baut unser Geschäftsführer Pim van der Poel Wasseranlagen für seine Kunden, angefangen in Holland. Diese Erfahrung fließt heute in jeden Pool ein, der in Hohenpolding entsteht. Für die Umsetzung sind viele Bauabschnitte nötig, von den Erdarbeiten über den Wasseranschluss bis zur Gartengestaltung. Wir koordinieren alle Firmen, damit Sie immer einen festen Ansprechpartner haben.
           </p>
 
           {/* Callout mit linkem Balken */}
-          <div className="border-l-[3px] pl-5 mb-6" style={{ borderColor: "#C49A3C" }}>
+          <div className="border-l-[3px] pl-5 mb-6" style={{ borderColor: "#00A1DE" }}>
             <p className="text-base font-bold text-foreground" style={{ fontFamily: "'Playfair Display', serif" }}>
               Unsere Leistungen auf einen Blick:
             </p>
@@ -353,7 +389,7 @@ function HomePage() {
           <div className="grid grid-cols-2 gap-x-6 gap-y-3">
             {LEISTUNGEN.map((item) => (
               <Link key={item.title} to={item.to} className="flex items-center gap-3 group">
-                <div className="size-3 shrink-0 transition group-hover:opacity-70" style={{ backgroundColor: "#C49A3C" }} />
+                <div className="size-2.5 shrink-0 rounded-full transition-transform duration-300 group-hover:scale-150" style={{ backgroundColor: "#00A1DE" }} />
                 <span className="text-sm text-foreground group-hover:text-primary transition">{item.title}</span>
               </Link>
             ))}

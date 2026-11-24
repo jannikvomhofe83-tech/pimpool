@@ -30,7 +30,7 @@ export function ProductPage({ content, video, heroTitle, beigeRight, beforeCTA }
 
       <section className="relative overflow-hidden">
         {beigeRight && (
-          <div className="absolute right-0 top-0 bottom-0 w-[25%] pointer-events-none" style={{ backgroundColor: "#C49A3C" }} />
+          <div className="absolute right-0 top-0 bottom-0 w-[25%] pointer-events-none" style={{ backgroundColor: "#00A1DE" }} />
         )}
         <div className="container-page relative py-16 grid lg:grid-cols-[1.4fr_1fr] gap-12">
         <div className="space-y-5 text-foreground/85 leading-relaxed">

@@ -24,15 +24,8 @@ export const COMPANY = {
 
 export const NAV: NavChild[] = [
   { label: "Startseite", to: "/" },
-  {
-    label: "Leistungen",
-    to: "/poolabdeckungen",
-    children: [
-      { label: "Pool", to: "/poolabdeckungen" },
-      { label: "Schwimmteich", to: "/schwimmteich" },
-    ],
-  },
-  { label: "Aufbau unserer Pools", to: "/aufbau-unserer-pools" },
-  { label: "Folien Farben/Design", to: "/folien-farben-design" },
+  { label: "Salzwasser-Pools", to: "/poolabdeckungen" },
+  { label: "Aufbau", to: "/aufbau-unserer-pools" },
+  { label: "Pool-Konfigurator", to: "/pool-konfigurator" },
   { label: "Kontakt", to: "/kontakt" },
 ];

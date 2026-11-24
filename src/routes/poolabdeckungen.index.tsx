@@ -2,17 +2,18 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Layers, Umbrella, Smartphone, Droplets, Check, ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/CTASection";
+import { WaveDivider } from "@/components/WaveDivider";
 import { useReveal } from "@/lib/useReveal";
 
-const GOLD = "#C49A3C";
-const NAVY = "#16527A";
+const KLM = "#00A1DE";
+const NAVY = "#0A3A5F";
 const DISPLAY = "'Fraunces', 'Playfair Display', Georgia, serif";
 
 export const Route = createFileRoute("/poolabdeckungen/")({
   head: () => ({
     meta: [
-      { title: "Unsere Pools – pim POOL" },
-      { name: "description", content: "Pool ist nicht gleich Pool. pim POOL baut Ihr Becken Stein für Stein in jeder Form, mit Römischer Treppe, smarter Technik und auf Wunsch als pflegeleichten Salzwasser-Pool." },
+      { title: "Salzwasser-Pools – pim POOL" },
+      { name: "description", content: "Pool ist nicht gleich Pool. pim POOL baut Ihr Becken Stein für Stein in jeder Form, mit Römischer Treppe, smarter Technik und als pflegeleichten Salzwasser-Pool." },
     ],
   }),
   component: UnserePoolsPage,
@@ -40,12 +41,12 @@ const FORMEN = [
   "Römische Treppen in runder oder gerader Form",
   "Integrierter Relax-Bereich zum Entspannen",
   "Kinder-Spielbereich im flachen Wasser",
-  "Nahezu jede Form und Größe durch Styroporsteine",
+  "Nahezu jede Form und Größe möglich",
 ];
 
 const POOLS = [
-  { img: "/images/pim/pool_1.jpg", title: "Rechteckpool an moderner Villa", desc: "Klassische Form mit türkiser RENOLIT Folie und großzügiger Terrasse" },
-  { img: "/images/pim/pool_3.jpg", title: "Pool mit Römischer Treppe", desc: "Geschwungene Form mit integrierter Treppe in tiefblauer RENOLIT Folie" },
+  { img: "/images/pim/pool_1.jpg", title: "Rechteckpool an moderner Villa", desc: "Klassische Form mit türkiser Auskleidung und großzügiger Terrasse" },
+  { img: "/images/pim/pool_3.jpg", title: "Pool mit Römischer Treppe", desc: "Geschwungene Form mit integrierter Treppe in tiefblauer Auskleidung" },
   { img: "/images/pim/pool_2.jpg", title: "Pool mit Glasüberdachung", desc: "Eingebettet in eine gepflegte Gartenlandschaft, geschützt durch eine Überdachung" },
   { img: "/images/pim/pool_start.jpg", title: "Runder Pool mit Überdachung", desc: "Stimmungsvoll beleuchtet, geschützt durch eine hohe Überdachung" },
   { img: "/images/pim/glass-enclosure.webp", title: "Flache Glasüberdachung", desc: "Becken mit nahezu unsichtbarer Schiebeüberdachung aus Glas" },
@@ -82,12 +83,12 @@ function UnserePoolsPage() {
   return (
     <div ref={rootRef}>
       {/* HERO */}
-      <section className="relative -mt-18 min-h-[60vh] flex items-center justify-center overflow-hidden">
-        <img src="/images/pim/pool_1.jpg" alt="" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-black/55" />
-        <div data-hero className="relative text-center text-white px-6 pt-32 pb-20">
+      <section className="relative -mt-18 min-h-[72vh] flex items-center justify-center overflow-hidden">
+        <img src="/images/Pim pool/Terrasse verschiebbar mit Handy.png" alt="" className="hero-kenburns absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#062440]/75 via-[#0A3A5F]/50 to-[#062440]/70" />
+        <div data-hero className="relative text-center text-white px-6 pt-36 pb-36">
           <div data-hero-item className="inline-flex items-center gap-2 rounded-full bg-white/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider mb-4">
-            Unsere Pools
+            Salzwasser-Pools
           </div>
           <h1
             data-hero-item
@@ -97,33 +98,33 @@ function UnserePoolsPage() {
             Pool ist nicht gleich Pool
           </h1>
           <p data-hero-item className="mt-5 text-lg text-white/85 max-w-2xl mx-auto" style={{ textShadow: "0 1px 6px rgba(0,0,0,0.7)" }}>
-            Jeder Pool wird individuell nach Ihren Wünschen geplant und gebaut. Hochwertige Becken mit erstklassigen RENOLIT Folien aus Oberbayern.
+            Jeder Salzwasser-Pool wird individuell nach Ihren Wünschen geplant und gebaut. Hochwertige Becken aus Oberbayern, mit 35 Jahren Erfahrung.
           </p>
           <Link
             to="/kontakt"
             data-hero-item
-            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#16527A] transition-all duration-200 hover:bg-[#C49A3C] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent active:scale-95"
+            className="group mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-[#0A3A5F] transition-all duration-200 hover:bg-[#00A1DE] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent active:scale-95"
           >
             Jetzt Beratung vereinbaren
             <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-0.5" />
           </Link>
         </div>
+        <WaveDivider />
       </section>
 
       {/* INDIVIDUALITÄT – Pool ist nicht gleich Pool */}
       <section className="container-page py-20 md:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div data-reveal="left">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: GOLD }}>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: KLM }}>
               Maßarbeit aus Hohenpolding
             </p>
             <h2 className="text-3xl md:text-4xl font-bold leading-tight" style={{ fontFamily: DISPLAY }}>
               Wir realisieren genau Ihre Vorstellung
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Wir berücksichtigen die örtlichen Gegebenheiten und setzen Ihre Ideen Stein für Stein um. Da wir mit
-              Styroporsteinen arbeiten, lässt sich annähernd jede Form und Größe individuell verwirklichen, genau so,
-              wie Sie es sich vorstellen.
+              Wir berücksichtigen die örtlichen Gegebenheiten und setzen Ihre Ideen Stein für Stein um. So lässt sich
+              annähernd jede Form und Größe individuell verwirklichen, genau so, wie Sie es sich vorstellen.
             </p>
             <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {FORMEN.map((f) => (
@@ -138,7 +139,7 @@ function UnserePoolsPage() {
           </div>
 
           <div data-reveal="right" className="relative">
-            <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl" style={{ backgroundColor: `${GOLD}26` }} aria-hidden="true" />
+            <div className="absolute -bottom-5 -right-5 h-2/3 w-2/3 rounded-3xl" style={{ backgroundColor: `${KLM}26` }} aria-hidden="true" />
             <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-3 shadow-elegant ring-1 ring-black/5">
               <img
                 src="/images/pim/pool_3.jpg"
@@ -151,7 +152,8 @@ function UnserePoolsPage() {
       </section>
 
       {/* TECHNISCHE RAFFINESSEN */}
-      <section className="relative overflow-hidden py-20 md:py-28">
+      <section className="relative overflow-hidden pt-36 pb-40 md:pt-44 md:pb-48">
+        <WaveDivider position="top" />
         <img
           src="/images/Pim pool/Pool Section Hintergrund.png"
           alt=""
@@ -178,25 +180,26 @@ function UnserePoolsPage() {
               <article
                 key={r.title}
                 data-reveal-item
-                className="group relative overflow-hidden rounded-2xl border border-border/70 bg-white/95 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#C49A3C]/40 hover:shadow-elegant"
+                className="group relative overflow-hidden rounded-2xl border border-border/70 bg-white/95 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#00A1DE]/40 hover:shadow-elegant"
               >
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute right-6 top-3 text-6xl leading-none text-[#16527A]/[0.06] transition-colors duration-300 group-hover:text-[#C49A3C]/20"
+                  className="pointer-events-none absolute right-6 top-3 text-6xl leading-none text-[#0A3A5F]/[0.06] transition-colors duration-300 group-hover:text-[#00A1DE]/20"
                   style={{ fontFamily: DISPLAY }}
                 >
                   0{i + 1}
                 </span>
-                <span className="relative grid size-12 place-items-center rounded-xl ring-1 ring-inset ring-[#C49A3C]/30" style={{ backgroundColor: `${GOLD}14` }}>
-                  <r.icon className="size-6" strokeWidth={1.5} style={{ color: GOLD }} />
+                <span className="relative grid size-12 place-items-center rounded-xl ring-1 ring-inset ring-[#00A1DE]/30" style={{ backgroundColor: `${KLM}14` }}>
+                  <r.icon className="size-6" strokeWidth={1.5} style={{ color: KLM }} />
                 </span>
                 <h3 className="mt-6 text-2xl font-semibold tracking-[-0.01em]" style={{ fontFamily: DISPLAY, color: NAVY }}>{r.title}</h3>
-                <div className="mt-3 h-px w-8 transition-all duration-300 group-hover:w-16" style={{ backgroundColor: GOLD }} aria-hidden="true" />
+                <div className="mt-3 h-px w-8 transition-all duration-300 group-hover:w-16" style={{ backgroundColor: KLM }} aria-hidden="true" />
                 <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{r.text}</p>
               </article>
             ))}
           </div>
         </div>
+        <WaveDivider />
       </section>
 
       {/* SALZWASSER – Spezialisierung (Dark Luxury) */}
@@ -205,17 +208,17 @@ function UnserePoolsPage() {
           data-reveal
           className="relative overflow-hidden rounded-[1.75rem] gradient-deep p-8 text-white shadow-elegant ring-1 ring-inset ring-white/10 md:p-14"
         >
-          {/* feine Gold-Haarlinie oben */}
-          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#C49A3C]/70 to-transparent" aria-hidden="true" />
-          {/* weicher Gold-Schimmer + Wasser-Wasserzeichen statt generischer Blobs */}
-          <div className="pointer-events-none absolute -right-24 -top-28 size-80 rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(196,154,60,0.22), transparent 70%)" }} aria-hidden="true" />
+          {/* feine KLM-Blau-Haarlinie oben */}
+          <div className="pointer-events-none absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-[#00A1DE]/70 to-transparent" aria-hidden="true" />
+          {/* weicher Blau-Schimmer + Wasser-Wasserzeichen statt generischer Blobs */}
+          <div className="pointer-events-none absolute -right-24 -top-28 size-80 rounded-full blur-3xl" style={{ background: "radial-gradient(circle, rgba(0,161,222,0.22), transparent 70%)" }} aria-hidden="true" />
           <Droplets className="pointer-events-none absolute -bottom-10 -right-6 size-64 rotate-12 text-white/[0.04]" strokeWidth={0.75} aria-hidden="true" />
 
           <div className="relative grid items-center gap-12 md:grid-cols-[1.15fr_1fr] md:gap-16">
             <div>
               <div className="flex items-center gap-3">
-                <span className="h-px w-10" style={{ backgroundColor: GOLD }} aria-hidden="true" />
-                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em]" style={{ color: GOLD }}>
+                <span className="h-px w-10" style={{ backgroundColor: KLM }} aria-hidden="true" />
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em]" style={{ color: KLM }}>
                   Unsere Spezialisierung
                 </p>
               </div>
@@ -224,12 +227,12 @@ function UnserePoolsPage() {
               </h2>
               <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75">
                 Salzwasser-Pools sind pflegeleicht und besonders angenehm für die Haut. Es genügt eine sehr geringe
-                Menge Salz, weit entfernt von dem, was Sie aus dem Meer kennen. Die klassische Variante mit Chlor
-                planen und realisieren wir selbstverständlich ebenso.
+                Menge Salz, weit entfernt von dem, was Sie aus dem Meer kennen. Deshalb bauen wir ausschließlich
+                Salzwasser-Pools.
               </p>
               <div className="mt-8 flex items-center gap-3">
-                <span className="grid size-7 shrink-0 place-items-center rounded-full ring-1 ring-inset ring-[#C49A3C]/40" style={{ backgroundColor: `${GOLD}26` }}>
-                  <Droplets className="size-3.5" style={{ color: GOLD }} />
+                <span className="grid size-7 shrink-0 place-items-center rounded-full ring-1 ring-inset ring-[#00A1DE]/40" style={{ backgroundColor: `${KLM}26` }}>
+                  <Droplets className="size-3.5" style={{ color: KLM }} />
                 </span>
                 <span className="text-sm text-white/80">Sanft zur Haut, schonend für Material und Technik.</span>
               </div>
@@ -246,14 +249,14 @@ function UnserePoolsPage() {
                   <div className="flex items-baseline justify-between">
                     <span className="text-sm font-medium text-white/85">Ihr pim POOL</span>
                     <span
-                      className="bg-gradient-to-br from-[#EBD08A] via-[#C49A3C] to-[#9A7424] bg-clip-text text-4xl font-semibold tabular-nums text-transparent"
+                      className="bg-gradient-to-br from-[#8FD8F5] via-[#00A1DE] to-[#0077B6] bg-clip-text text-4xl font-semibold tabular-nums text-transparent"
                       style={{ fontFamily: DISPLAY }}
                     >
                       1,5 kg
                     </span>
                   </div>
                   <div className="mt-3 h-2.5 w-full overflow-hidden rounded-full bg-white/[0.08]">
-                    <div className="h-full rounded-full" style={{ width: saltIn ? "12%" : "0%", background: "linear-gradient(90deg, #C49A3C, #EBD08A)", boxShadow: "0 0 16px rgba(196,154,60,0.5)", transition: `width 1.4s ${barEase}` }} />
+                    <div className="h-full rounded-full" style={{ width: saltIn ? "12%" : "0%", background: "linear-gradient(90deg, #00A1DE, #8FD8F5)", boxShadow: "0 0 16px rgba(0,161,222,0.5)", transition: `width 1.4s ${barEase}` }} />
                   </div>
                 </div>
 
@@ -270,7 +273,7 @@ function UnserePoolsPage() {
 
               {/* Kicker-Stat */}
               <div className="mt-7 flex items-baseline gap-2.5 border-t border-white/10 pt-5">
-                <span className="text-3xl font-semibold tabular-nums" style={{ fontFamily: DISPLAY, color: GOLD }}>20×</span>
+                <span className="text-3xl font-semibold tabular-nums" style={{ fontFamily: DISPLAY, color: KLM }}>20×</span>
                 <span className="text-sm leading-snug text-white/65">weniger Salz als im Meerwasser</span>
               </div>
             </div>
@@ -281,7 +284,7 @@ function UnserePoolsPage() {
       {/* GALERIE */}
       <section className="container-page pb-20 md:pb-28">
         <div data-reveal className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: GOLD }}>
+          <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: KLM }}>
             Referenzen
           </p>
           <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: DISPLAY }}>
@@ -301,7 +304,7 @@ function UnserePoolsPage() {
               </div>
               <div className="p-5">
                 <h3 className="text-lg font-bold" style={{ fontFamily: DISPLAY }}>{p.title}</h3>
-                <div className="mt-2 h-[2px] w-8 transition-all duration-300 group-hover:w-16" style={{ backgroundColor: GOLD }} />
+                <div className="mt-2 h-[2px] w-8 transition-all duration-300 group-hover:w-16" style={{ backgroundColor: KLM }} />
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
               </div>
             </div>
