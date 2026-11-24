@@ -45,56 +45,62 @@
 :root {
   --radius: 0.75rem;
 
-  /* Brand – pim POOL: Navy-Blau + Gold auf Weiß */
-  --water: oklch(0.62 0.10 235);          /* helles ozeanblau */
-  --water-deep: oklch(0.38 0.09 245);     /* tiefes navy */
-  --water-soft: oklch(0.96 0.018 235);    /* sehr helles blau */
-  --ink: oklch(0.27 0.02 250);            /* anthrazit */
+  /* Brand – pim POOL: Blau-Palette abgeleitet von KLM-Blau (#00A1DE) auf Weiß
+     KLM-Blau  #00A1DE  – Akzent, Icons, Linien
+     Ozean     #0077B6  – Buttons, Links, Primärfarbe
+     Tiefsee   #0A3A5F  – Überschriften-Akzent, dunkle Panels
+     Nacht     #062440  – Verlaufsende dunkle Panels
+     Lagune    #8FD8F5  – helle Akzente auf Dunkel
+     Eis       #E6F6FD  – sehr helle Flächen  */
+  --water: #00A1DE;
+  --water-deep: #0A3A5F;
+  --water-soft: #E6F6FD;
+  --ink: #12263A;
 
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.27 0.02 250);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.27 0.02 250);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.27 0.02 250);
+  --background: #ffffff;
+  --foreground: #12263A;
+  --card: #ffffff;
+  --card-foreground: #12263A;
+  --popover: #ffffff;
+  --popover-foreground: #12263A;
 
-  --primary: oklch(0.45 0.10 245);        /* #16527A navy-blau */
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.38 0.09 245);      /* tiefes navy für dunkle Panels */
-  --secondary-foreground: oklch(1 0 0);
+  --primary: #0077B6;
+  --primary-foreground: #ffffff;
+  --secondary: #0A3A5F;
+  --secondary-foreground: #ffffff;
 
-  --muted: oklch(0.97 0.008 235);
-  --muted-foreground: oklch(0.48 0.02 245);
-  --accent: oklch(0.91 0.05 90);          /* helles gold hover */
-  --accent-foreground: oklch(0.27 0.02 250);
+  --muted: #F2F9FD;
+  --muted-foreground: #4A6075;
+  --accent: #D6F0FB;
+  --accent-foreground: #0A3A5F;
 
   --destructive: oklch(0.6 0.22 27);
-  --destructive-foreground: oklch(1 0 0);
+  --destructive-foreground: #ffffff;
 
-  --border: oklch(0.92 0.01 235);
-  --input: oklch(0.92 0.01 235);
-  --ring: oklch(0.45 0.10 245);
+  --border: #DCEBF3;
+  --input: #D2E4EE;
+  --ring: #00A1DE;
 
-  --chart-1: oklch(0.45 0.10 245);
-  --chart-2: oklch(0.62 0.10 235);
-  --chart-3: oklch(0.38 0.09 245);
-  --chart-4: oklch(0.72 0.10 90);
-  --chart-5: oklch(0.66 0.11 85);
+  --chart-1: #0077B6;
+  --chart-2: #00A1DE;
+  --chart-3: #0A3A5F;
+  --chart-4: #8FD8F5;
+  --chart-5: #4FC3EC;
 
-  --sidebar: oklch(0.98 0.008 235);
-  --sidebar-foreground: oklch(0.27 0.02 250);
-  --sidebar-primary: oklch(0.45 0.10 245);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.91 0.05 90);
-  --sidebar-accent-foreground: oklch(0.27 0.02 250);
-  --sidebar-border: oklch(0.92 0.01 235);
-  --sidebar-ring: oklch(0.45 0.10 245);
+  --sidebar: #F2F9FD;
+  --sidebar-foreground: #12263A;
+  --sidebar-primary: #0077B6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #D6F0FB;
+  --sidebar-accent-foreground: #0A3A5F;
+  --sidebar-border: #DCEBF3;
+  --sidebar-ring: #00A1DE;
 
-  --gradient-water: linear-gradient(135deg, oklch(0.50 0.11 240), oklch(0.40 0.10 248));  /* navy CTA */
-  --gradient-deep: linear-gradient(160deg, oklch(0.38 0.09 245), oklch(0.24 0.06 250));   /* navy panels */
-  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.01 235), oklch(0.965 0.016 235));
-  --shadow-elegant: 0 20px 50px -20px color-mix(in oklab, oklch(0.38 0.09 245) 30%, transparent);
-  --shadow-card: 0 8px 30px -12px color-mix(in oklab, oklch(0.38 0.09 245) 18%, transparent);
+  --gradient-water: linear-gradient(135deg, #00A1DE, #0077B6);
+  --gradient-deep: linear-gradient(160deg, #0A3A5F, #062440);
+  --gradient-soft: linear-gradient(180deg, #F7FCFE, #E6F6FD);
+  --shadow-elegant: 0 20px 50px -20px color-mix(in oklab, #0A3A5F 30%, transparent);
+  --shadow-card: 0 8px 30px -12px color-mix(in oklab, #0A3A5F 18%, transparent);
 }
 
 .dark {
@@ -170,4 +176,21 @@
 }
 @keyframes reveal-in {
   to { opacity: 1; transform: translateY(0); }
+}
+
+/* Startseiten-Hero */
+.hero-kenburns { animation: hero-kenburns 22s ease-out both; transform-origin: 60% 50%; }
+@keyframes hero-kenburns { from { transform: scale(1.14); } to { transform: scale(1.02); } }
+
+.hero-shimmer {
+  background: radial-gradient(closest-side, rgba(143, 216, 245, 0.22), transparent);
+  animation: hero-shimmer 9s ease-in-out infinite alternate;
+}
+@keyframes hero-shimmer { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(18%, -8%, 0) scale(1.15); } }
+
+.hero-wave { animation: hero-wave linear infinite; }
+@keyframes hero-wave { from { translate: 0 0; } to { translate: -50% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns, .hero-shimmer, .hero-wave { animation: none; }
 }

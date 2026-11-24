@@ -6,8 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PageHero } from "@/components/PageHero";
 import { CTASection } from "@/components/CTASection";
 
-const TURQ = "#C49A3C";
-const ORANGE = "#16527A";
+const KLM = "#00A1DE";
+const NAVY = "#0A3A5F";
 const PLAYFAIR = "'Playfair Display', serif";
 
 export const Route = createFileRoute("/daecher")({
@@ -92,7 +92,7 @@ function DaecherPage() {
         <div className="container-page grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Text */}
           <div className="reveal-up">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: TURQ }}>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: KLM }}>
               Technik mit Raffinesse
             </p>
             <h2 className="text-3xl font-bold leading-tight md:text-4xl" style={{ fontFamily: PLAYFAIR }}>
@@ -112,7 +112,7 @@ function DaecherPage() {
             <div className="mt-10 grid gap-6 sm:grid-cols-3">
               {VORTEILE.map((v) => (
                 <div key={v.title}>
-                  <v.icon className="size-8" strokeWidth={1.5} style={{ color: TURQ }} />
+                  <v.icon className="size-8" strokeWidth={1.5} style={{ color: KLM }} />
                   <h3 className="mt-3 text-base font-bold" style={{ fontFamily: PLAYFAIR }}>{v.title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{v.text}</p>
                 </div>
@@ -122,7 +122,7 @@ function DaecherPage() {
 
           {/* Bild + Zitat */}
           <div className="phil-img relative">
-            <div className="absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-3xl bg-[#C49A3C]/15" aria-hidden="true" />
+            <div className="absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-3xl bg-[#00A1DE]/15" aria-hidden="true" />
             <div className="relative overflow-hidden rounded-3xl border border-border bg-white p-3 shadow-elegant ring-1 ring-black/5">
               <img
                 src="/images/pim/glass-enclosure.webp"
@@ -144,7 +144,7 @@ function DaecherPage() {
       <section className="py-20 md:py-28" style={{ backgroundColor: "#f4f7fa" }}>
         <div className="container-page">
           <div className="reveal-up mx-auto max-w-2xl text-center">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: ORANGE }}>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-widest" style={{ color: NAVY }}>
               Unsere Möglichkeiten
             </p>
             <h2 className="text-3xl font-bold leading-tight md:text-5xl" style={{ fontFamily: PLAYFAIR }}>
@@ -162,7 +162,7 @@ function DaecherPage() {
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm" style={{ color: TURQ }}>
+                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm" style={{ color: KLM }}>
                     {m.label}
                   </span>
                 </div>

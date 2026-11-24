@@ -9,25 +9,24 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SchwimmteichRouteImport } from './routes/schwimmteich'
 import { Route as PoolabdeckungenRouteImport } from './routes/poolabdeckungen'
+import { Route as PoolKonfiguratorRouteImport } from './routes/pool-konfigurator'
 import { Route as KontaktRouteImport } from './routes/kontakt'
 import { Route as ImpressumRouteImport } from './routes/impressum'
-import { Route as FolienFarbenDesignRouteImport } from './routes/folien-farben-design'
 import { Route as DatenschutzRouteImport } from './routes/datenschutz'
 import { Route as DaecherRouteImport } from './routes/daecher'
 import { Route as AufbauUnsererPoolsRouteImport } from './routes/aufbau-unserer-pools'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PoolabdeckungenIndexRouteImport } from './routes/poolabdeckungen.index'
 
-const SchwimmteichRoute = SchwimmteichRouteImport.update({
-  id: '/schwimmteich',
-  path: '/schwimmteich',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const PoolabdeckungenRoute = PoolabdeckungenRouteImport.update({
   id: '/poolabdeckungen',
   path: '/poolabdeckungen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoolKonfiguratorRoute = PoolKonfiguratorRouteImport.update({
+  id: '/pool-konfigurator',
+  path: '/pool-konfigurator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KontaktRoute = KontaktRouteImport.update({
@@ -38,11 +37,6 @@ const KontaktRoute = KontaktRouteImport.update({
 const ImpressumRoute = ImpressumRouteImport.update({
   id: '/impressum',
   path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FolienFarbenDesignRoute = FolienFarbenDesignRouteImport.update({
-  id: '/folien-farben-design',
-  path: '/folien-farben-design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DatenschutzRoute = DatenschutzRouteImport.update({
@@ -76,11 +70,10 @@ export interface FileRoutesByFullPath {
   '/aufbau-unserer-pools': typeof AufbauUnsererPoolsRoute
   '/daecher': typeof DaecherRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/folien-farben-design': typeof FolienFarbenDesignRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/pool-konfigurator': typeof PoolKonfiguratorRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
-  '/schwimmteich': typeof SchwimmteichRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesByTo {
@@ -88,10 +81,9 @@ export interface FileRoutesByTo {
   '/aufbau-unserer-pools': typeof AufbauUnsererPoolsRoute
   '/daecher': typeof DaecherRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/folien-farben-design': typeof FolienFarbenDesignRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
-  '/schwimmteich': typeof SchwimmteichRoute
+  '/pool-konfigurator': typeof PoolKonfiguratorRoute
   '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesById {
@@ -100,11 +92,10 @@ export interface FileRoutesById {
   '/aufbau-unserer-pools': typeof AufbauUnsererPoolsRoute
   '/daecher': typeof DaecherRoute
   '/datenschutz': typeof DatenschutzRoute
-  '/folien-farben-design': typeof FolienFarbenDesignRoute
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
+  '/pool-konfigurator': typeof PoolKonfiguratorRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
-  '/schwimmteich': typeof SchwimmteichRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRouteTypes {
@@ -114,11 +105,10 @@ export interface FileRouteTypes {
     | '/aufbau-unserer-pools'
     | '/daecher'
     | '/datenschutz'
-    | '/folien-farben-design'
     | '/impressum'
     | '/kontakt'
+    | '/pool-konfigurator'
     | '/poolabdeckungen'
-    | '/schwimmteich'
     | '/poolabdeckungen/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -126,10 +116,9 @@ export interface FileRouteTypes {
     | '/aufbau-unserer-pools'
     | '/daecher'
     | '/datenschutz'
-    | '/folien-farben-design'
     | '/impressum'
     | '/kontakt'
-    | '/schwimmteich'
+    | '/pool-konfigurator'
     | '/poolabdeckungen'
   id:
     | '__root__'
@@ -137,11 +126,10 @@ export interface FileRouteTypes {
     | '/aufbau-unserer-pools'
     | '/daecher'
     | '/datenschutz'
-    | '/folien-farben-design'
     | '/impressum'
     | '/kontakt'
+    | '/pool-konfigurator'
     | '/poolabdeckungen'
-    | '/schwimmteich'
     | '/poolabdeckungen/'
   fileRoutesById: FileRoutesById
 }
@@ -150,27 +138,26 @@ export interface RootRouteChildren {
   AufbauUnsererPoolsRoute: typeof AufbauUnsererPoolsRoute
   DaecherRoute: typeof DaecherRoute
   DatenschutzRoute: typeof DatenschutzRoute
-  FolienFarbenDesignRoute: typeof FolienFarbenDesignRoute
   ImpressumRoute: typeof ImpressumRoute
   KontaktRoute: typeof KontaktRoute
+  PoolKonfiguratorRoute: typeof PoolKonfiguratorRoute
   PoolabdeckungenRoute: typeof PoolabdeckungenRouteWithChildren
-  SchwimmteichRoute: typeof SchwimmteichRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/schwimmteich': {
-      id: '/schwimmteich'
-      path: '/schwimmteich'
-      fullPath: '/schwimmteich'
-      preLoaderRoute: typeof SchwimmteichRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/poolabdeckungen': {
       id: '/poolabdeckungen'
       path: '/poolabdeckungen'
       fullPath: '/poolabdeckungen'
       preLoaderRoute: typeof PoolabdeckungenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pool-konfigurator': {
+      id: '/pool-konfigurator'
+      path: '/pool-konfigurator'
+      fullPath: '/pool-konfigurator'
+      preLoaderRoute: typeof PoolKonfiguratorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kontakt': {
@@ -185,13 +172,6 @@ declare module '@tanstack/react-router' {
       path: '/impressum'
       fullPath: '/impressum'
       preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/folien-farben-design': {
-      id: '/folien-farben-design'
-      path: '/folien-farben-design'
-      fullPath: '/folien-farben-design'
-      preLoaderRoute: typeof FolienFarbenDesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/datenschutz': {
@@ -249,11 +229,10 @@ const rootRouteChildren: RootRouteChildren = {
   AufbauUnsererPoolsRoute: AufbauUnsererPoolsRoute,
   DaecherRoute: DaecherRoute,
   DatenschutzRoute: DatenschutzRoute,
-  FolienFarbenDesignRoute: FolienFarbenDesignRoute,
   ImpressumRoute: ImpressumRoute,
   KontaktRoute: KontaktRoute,
+  PoolKonfiguratorRoute: PoolKonfiguratorRoute,
   PoolabdeckungenRoute: PoolabdeckungenRouteWithChildren,
-  SchwimmteichRoute: SchwimmteichRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
