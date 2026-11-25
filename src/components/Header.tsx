@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { NAV, COMPANY, type NavChild } from "@/lib/site";
@@ -8,7 +8,10 @@ const KLM = "#00A1DE";
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
+  // Seiten ohne dunkles Hero-Bild bekommen immer die helle Kopfzeile
+  const pathname = useRouterState({ select: (st) => st.location.pathname });
+  const scrolled = isScrolled || ["/impressum", "/datenschutz"].includes(pathname);
   const [openMobile, setOpenMobile] = useState<string | null>(null);
 
   useEffect(() => {
@@ -29,9 +32,11 @@ export function Header() {
       <div className="container-page flex h-18 items-center justify-between py-3">
         <Link to="/" className="flex items-center">
           <img
-            src="/images/pim-logo.png"
+            src={scrolled ? "/images/logo/pimpool-logo-quer-hauptlogo.png" : "/images/logo/pimpool-logo-quer-negativ.png"}
             alt="pim POOL"
-            className={`w-auto transition-all duration-500 ${scrolled ? "h-12" : "h-14 rounded-lg bg-white/92 px-3 py-1.5 shadow-md"}`}
+            width={900}
+            height={231}
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-10" : "h-11 drop-shadow-[0_2px_8px_rgba(6,36,64,0.6)]"}`}
           />
         </Link>
 

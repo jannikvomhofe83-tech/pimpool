@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ReferenzenRouteImport } from './routes/referenzen'
 import { Route as PoolabdeckungenRouteImport } from './routes/poolabdeckungen'
 import { Route as PoolKonfiguratorRouteImport } from './routes/pool-konfigurator'
 import { Route as KontaktRouteImport } from './routes/kontakt'
@@ -19,6 +20,11 @@ import { Route as AufbauUnsererPoolsRouteImport } from './routes/aufbau-unserer-
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PoolabdeckungenIndexRouteImport } from './routes/poolabdeckungen.index'
 
+const ReferenzenRoute = ReferenzenRouteImport.update({
+  id: '/referenzen',
+  path: '/referenzen',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PoolabdeckungenRoute = PoolabdeckungenRouteImport.update({
   id: '/poolabdeckungen',
   path: '/poolabdeckungen',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/kontakt': typeof KontaktRoute
   '/pool-konfigurator': typeof PoolKonfiguratorRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/referenzen': typeof ReferenzenRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/impressum': typeof ImpressumRoute
   '/kontakt': typeof KontaktRoute
   '/pool-konfigurator': typeof PoolKonfiguratorRoute
+  '/referenzen': typeof ReferenzenRoute
   '/poolabdeckungen': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/kontakt': typeof KontaktRoute
   '/pool-konfigurator': typeof PoolKonfiguratorRoute
   '/poolabdeckungen': typeof PoolabdeckungenRouteWithChildren
+  '/referenzen': typeof ReferenzenRoute
   '/poolabdeckungen/': typeof PoolabdeckungenIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/pool-konfigurator'
     | '/poolabdeckungen'
+    | '/referenzen'
     | '/poolabdeckungen/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/impressum'
     | '/kontakt'
     | '/pool-konfigurator'
+    | '/referenzen'
     | '/poolabdeckungen'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/kontakt'
     | '/pool-konfigurator'
     | '/poolabdeckungen'
+    | '/referenzen'
     | '/poolabdeckungen/'
   fileRoutesById: FileRoutesById
 }
@@ -142,10 +154,18 @@ export interface RootRouteChildren {
   KontaktRoute: typeof KontaktRoute
   PoolKonfiguratorRoute: typeof PoolKonfiguratorRoute
   PoolabdeckungenRoute: typeof PoolabdeckungenRouteWithChildren
+  ReferenzenRoute: typeof ReferenzenRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/referenzen': {
+      id: '/referenzen'
+      path: '/referenzen'
+      fullPath: '/referenzen'
+      preLoaderRoute: typeof ReferenzenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/poolabdeckungen': {
       id: '/poolabdeckungen'
       path: '/poolabdeckungen'
@@ -233,6 +253,7 @@ const rootRouteChildren: RootRouteChildren = {
   KontaktRoute: KontaktRoute,
   PoolKonfiguratorRoute: PoolKonfiguratorRoute,
   PoolabdeckungenRoute: PoolabdeckungenRouteWithChildren,
+  ReferenzenRoute: ReferenzenRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

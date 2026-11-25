@@ -26,6 +26,7 @@ export const NAV: NavChild[] = [
   { label: "Startseite", to: "/" },
   { label: "Salzwasser-Pools", to: "/poolabdeckungen" },
   { label: "Aufbau", to: "/aufbau-unserer-pools" },
+  { label: "Referenzen", to: "/referenzen" },
   { label: "Pool-Konfigurator", to: "/pool-konfigurator" },
   { label: "Kontakt", to: "/kontakt" },
 ];

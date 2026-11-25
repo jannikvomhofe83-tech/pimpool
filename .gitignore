@@ -36,3 +36,5 @@ dist-ssr
 
 # Firecrawl scrape cache
 .firecrawl/
+_referenzen_original/
+_branding/

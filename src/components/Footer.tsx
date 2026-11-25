@@ -13,9 +13,11 @@ export function Footer() {
           <div className="lg:col-span-1 space-y-5">
             <Link to="/">
               <img
-                src="/images/pim-logo.png"
+                src="/images/logo/pimpool-logo-quer-negativ.png"
                 alt="pim POOL"
-                className="h-16 w-auto rounded-lg bg-white px-3 py-2"
+                width={900}
+                height={231}
+                className="h-12 w-auto"
               />
             </Link>
             <p className="text-sm text-primary-foreground/75 leading-relaxed">
